@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/logo.jpg">
+    <title>Sistema Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .top-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            margin-right: 20px; /* Añade margen a la derecha */
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #E8F0F3;
+            position: fixed;
+            top: 50px; /* Adjusted to accommodate the top bar */
+            height: calc(100% - 50px);
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            margin-top: 50px; /* Adjusted to accommodate the top bar */
+            width: 100%;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .records {
+            margin-top: 20px;
+        }
+
+        .record-item {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="#login">Iniciar Sesión</a>
+    </div>
+
+    <div class="sidebar">
+        <a href="#libros" onclick="openModal('modalLibros')">Libros</a>
+        <a href="#devolucion" onclick="openModal('modalDevolucion')">Devolución</a>
+        <a href="#prestamos" onclick="openModal('modalPrestamos')">Préstamos</a>
+    </div>
+
+    <div class="content">
+        <h1>Bienvenido al Sistema de Gestión de Libros</h1>
+        <p>Seleccione una opción del menú lateral para comenzar.</p>
+        <div id="records" class="records">
+            <h2>Registros</h2>
+            <div id="librosRecords">
+                <h3>Libros</h3>
+            </div>
+            <div id="devolucionRecords">
+                <h3>Devoluciones</h3>
+            </div>
+            <div id="prestamosRecords">
+                <h3>Préstamos</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Libros -->
+    <div id="modalLibros" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalLibros')">&times;</span>
+            <h2>Formulario de Libros</h2>
+            <form id="librosForm" onsubmit="addRecord(event, 'libros')">
+                <label for="titulo">Título:</label><br>
+                <input type="text" id="titulo" name="titulo" required><br><br>
+                <label for="autor">Autor:</label><br>
+                <input type="text" id="autor" name="autor" required><br><br>
+                <label for="isbn">ISBN:</label><br>
+                <input type="text" id="isbn" name="isbn" required><br><br>
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Devolucion -->
+    <div id="modalDevolucion" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalDevolucion')">&times;</span>
+            <h2>Formulario de Devolución</h2>
+            <form id="devolucionForm" onsubmit="addRecord(event, 'devolucion')">
+                <label for="prestamoId">ID del Préstamo:</label><br>
+                <input type="text" id="prestamoId" name="prestamoId" required><br><br>
+                <label for="fechaDevolucion">Fecha de Devolución:</label><br>
+                <input type="date" id="fechaDevolucion" name="fechaDevolucion" required><br><br>
+                <input type="submit" value="Registrar Devolución">
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Prestamos -->
+    <div id="modalPrestamos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalPrestamos')">&times;</span>
+            <h2>Formulario de Préstamos</h2>
+            <form id="prestamosForm" onsubmit="addRecord(event, 'prestamos')">
+                <label for="libroId">ID del Libro:</label><br>
+                <input type="text" id="libroId" name="libroId" required><br><br>
+                <label for="usuarioId">ID del Usuario:</label><br>
+                <input type="text" id="usuarioId" name="usuarioId" required><br><br>
+                <label for="fechaPrestamo">Fecha de Préstamo:</label><br>
+                <input type="date" id="fechaPrestamo" name="fechaPrestamo" required><br><br>
+                <input type="submit" value="Registrar Préstamo">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        function addRecord(event, type) {
+            event.preventDefault();
+
+            let form, recordSection;
+
+            if (type === 'libros') {
+                form = document.getElementById('librosForm');
+                recordSection = document.getElementById('librosRecords');
+            } else if (type === 'devolucion') {
+                form = document.getElementById('devolucionForm');
+                recordSection = document.getElementById('devolucionRecords');
+            } else if (type === 'prestamos') {
+                form = document.getElementById('prestamosForm');
+                recordSection = document.getElementById('prestamosRecords');
+            }
+
+            const formData = new FormData(form);
+            const recordItem = document.createElement('div');
+            recordItem.className = 'record-item';
+
+            if (type === 'libros') {
+                recordItem.innerHTML = `<strong>Título:</strong> ${formData.get('titulo')} <br>
+                                        <strong>Autor:</strong> ${formData.get('autor')} <br>
+                                        <strong>ISBN:</strong> ${formData.get('isbn')}`;
+            } else if (type === 'devolucion') {
+                recordItem.innerHTML = `<strong>ID del Préstamo:</strong> ${formData.get('prestamoId')} <br>
+                                        <strong>Fecha de Devolución:</strong> ${formData.get('fechaDevolucion')}`;
+            } else if (type === 'prestamos') {
+                recordItem.innerHTML = `<strong>ID del Libro:</strong> ${formData.get('libroId')} <br>
+                                        <strong>ID del Usuario:</strong> ${formData.get('usuarioId')} <br>
+                                        <strong>Fecha de Préstamo:</strong> ${formData.get('fechaPrestamo')}`;
+            }
+
+            recordSection.appendChild(recordItem);
+            closeModal(`modal${type.charAt(0).toUpperCase() + type.slice(1)}`);
+            form.reset();
+        }
+    </script>
+</body>
+</html>

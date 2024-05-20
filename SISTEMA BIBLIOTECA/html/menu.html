@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Biblioteca</title>
+	<link rel="stylesheet" href="/css/menu.css">
+	<link rel="icon" href="/img/logo.jpg">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
+			<div class="logo">
+				<img src="/img/logo.jpg" >
+			</div>
+			<nav class="menu">
+				<a href="#">Mi cuenta</a>
+			</nav>
+		</div>
+	</header>
+	<div class="capa"></div>
+	<input type="checkbox" id="btn-menu">
+	<div class="container-menu">
+		<div class="cont-menu">
+			<nav>
+				<a href="#">Búsqueda</a>
+				<a href="#" id="mostrarFormularioLibro">Libros</a>
+				<a href="#">Prestamos/Devoluciones</a>
+				<a href="#">Estudiantes</a>
+				<a href="#">Administrador</a>
+				<a href="#">Estadísticas/Reportes</a>
+				<a href="#">Acerca de Nosotros</a>
+			</nav>
+			<label for="btn-menu">✖️</label>
+		</div>
+	</div>
+	<div id="formularioLibroContainer"></div>
+	<script>
+		document.getElementById('mostrarFormularioLibro').addEventListener('click', function() {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					document.getElementById('formularioLibroContainer').innerHTML = xhr.responseText;
+				}
+			};
+			xhr.open('GET', '/html/libro.html', true);
+			xhr.send();
+		});
+	</script>
+	<div>
+		<iframe class="footer" src="/html/footer.html" frameborder="0"></iframe>
+	</div>
+</body>
+</html>
