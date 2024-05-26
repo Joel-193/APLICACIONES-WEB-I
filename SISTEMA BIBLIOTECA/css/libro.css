@@ -1,0 +1,153 @@
+*{
+    margin: 0%;
+}
+
+body{
+    background-color: #8d6e63;
+}
+.logo img {
+    height: 40px; /* Ajusta según el tamaño de tu logo */
+}
+header, main, footer, hr{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+header{
+    margin-top: 2%;
+}
+
+.back-button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/*footer{
+    text-align: center;
+    margin-top: 13px;
+    margin-bottom: 13px;
+
+}*/
+main{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    margin-bottom: 13px;
+    border-style: solid;
+    border-color: lightcoral;
+    border-width: 2px;
+    padding: 12px;
+}
+
+main img{
+    width: 150px;
+    height: 170px;
+}
+
+hr{
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: rgb(211, 168, 116);
+}
+header .logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+header h1{
+    margin-left: 10px;
+    text-align: center;
+    font-family: 'Fascinate Inline', cursive;
+}
+form{
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;
+    padding: 8%;
+}
+header label{
+    margin-top: 5px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+
+}
+
+.botao{
+    margin-top: 22px;
+    
+}
+.btn{
+    margin-top: 20px;
+}
+input[type="text"], input[type="date"]{
+    text-decoration: none;
+    margin-left: 1px;
+    padding-left: 1px;
+    font-size: 20px;
+    border-radius: 30px 10px 30px 10px;
+    border-style:solid;
+    border-width: 1px;
+    padding: 12px;
+    color:rgb(0, 0, 0);
+    border-color: #000;
+
+}
+
+input[type="submit"]{
+    text-decoration: none;
+    margin-left: 1px;
+    padding-left: 5px;
+    font-size: 30px;
+    border-radius: 30px 10px 30px 10px;
+    border-style:solid;
+    border-width: 1px;
+    padding: 12px;
+    color:rgb(0, 0, 0);
+    border-color: rgb(48, 46, 46);
+}
+
+input[type="submit"]:link, input[type="submit"]:visited, input[type="submit"]:active {
+    text-decoration: none;
+    background-color:rgb(0, 0, 0);
+    transition: 0.8s;
+
+}
+input[type="submit"]:hover { 
+    transition: 0.3s;
+    text-decoration:none; 
+    background-color:#5a4a44;
+    color:#fff;
+    padding: 12px;
+    border-radius: 10px 30px 10px 30px;
+    border-color: #5a4a44;
+}
+
+input[type="text"], input[type="date"]{ 
+    border:5px solid #6e5951;
+}
+
+input[type="text"]:hover, input[type="date"]:hover, input[type="text"]:visited, input[type="date"]:hover, input[type="text"]:active,input[type="date"]:active {
+    border:5px solid #5a4a44;
+}
+
+@media (max-width: 875px){
+
+    h1{
+        font-size: 30px;
+    }
+    header, main, footer, hr{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    main{
+        flex-direction: column;
+    }
+    main .botao{
+        align-items: text;
+    }
+}

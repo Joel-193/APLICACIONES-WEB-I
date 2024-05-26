@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Biblioteca</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/prestamo-devolucion.css" rel="stylesheet" />
+    <link rel="icon" href="/img/logo.png" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/img/libro.jpg" />
+        <h1>Registrar préstamo y devolución</h1>
+      </div>
+      <button onclick="goBack()" class="back-button">Volver</button>
+      <form action="" id="formulario" onsubmit="showData(event)">
+        <label for="libro">Libro</label>
+        <input
+          class="campo"
+          type="text"
+          id="libro"
+          placeholder="Nombre del libro"
+        />
+        <label for="estudiante">Estudiante</label>
+        <input
+          class="campo"
+          type="text"
+          id="estudiante"
+          placeholder="Nombre del estudiante"
+        />
+        <label for="fecha-prestamo">Fecha de préstamo</label>
+        <input class="campo" type="date" id="fecha-prestamo" />
+        <label for="fecha-devolucion">Fecha de devolución</label>
+        <input class="campo" type="date" id="fecha-devolucion" />
+        <label for="cantidad">Cantidad</label>
+        <input
+          class="campo"
+          type="number"
+          id="cantidad"
+          placeholder="Cantidad"
+        />
+        <label for="observacion">Observación</label>
+        <textarea
+          class="campo"
+          id="observacion"
+          placeholder="Observaciones"
+        ></textarea>
+        <div class="botao">
+          <input class="btn" type="submit" name="enviar" id="botaoDeEnviar" />
+        </div>
+      </form>
+    </header>
+    <main>
+      <div id="respuesta"></div>
+    </main>
+    <footer></footer>
+    <script src="/js/inicio.js"></script>
+    <script src="/js/prestamo-devolucion.js"></script>
+  </body>
+</html>

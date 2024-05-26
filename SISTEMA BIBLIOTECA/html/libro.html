@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Biblioteca</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/libro.css" rel="stylesheet" />
+    <link rel="icon" href="/img/logo.png" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/img/libro.jpg" />
+        <h1>Registrar libro</h1>
+      </div>
+      <button onclick="goBack()" class="back-button">Volver</button>
+      <form action="" id="form" onsubmit="showData(event)">
+        <label for="author">Autor</label>
+        <input
+          class="field"
+          type="text"
+          id="author"
+          placeholder="Escriba el nombre del autor"
+        />
+        <label for="title">Título</label>
+        <input
+          class="field"
+          type="text"
+          id="title"
+          placeholder="Escriba el titulo del libro"
+        />
+        <label for="isbn">ISBN</label>
+        <input
+          class="field"
+          type="text"
+          id="isbn"
+          placeholder="Escriba el código ISBN"
+        />
+        <label for="publicationDate">Fecha publicación</label>
+        <input
+          class="field"
+          type="date"
+          id="publicationDate"
+          placeholder="Escriba el año de publicación"
+        />
+        <div class="button">
+          <input class="btn" type="submit" name="enviar" id="submitButton" />
+        </div>
+      </form>
+    </header>
+    <main>
+      <div id="response"></div>
+    </main>
+    <footer></footer>
+    <script src="/js/libro.js"></script>
+    <script src="/js/inicio.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Biblioteca</title>
+    <link rel="stylesheet" href="/css/incio.css" />
+    <link rel="icon" href="/img/logo.png">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/img/logo.png" alt="Logo" />
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Buscar..." />
+        <button type="submit">Buscar</button>
+      </div>
+      <nav>
+        <ul>
+            <li><a href="/html/acerca-nosotros.html">Acerca de Nosotros</a></li>
+            <li><a href="/html/prestamo-devolucion.html">Prestamos/Devoluciones</a></li>
+            <li><a href="/html/libro.html">Libros</a></li>
+            <li><a href="#mi-cuenta">Mi Cuenta</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="mi-cuenta">
+        <h2>Mi Cuenta</h2>
+        <p>Aquí puedes gestionar tu cuenta.</p>
+        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+      </section>
+      <section id="libros">
+        <h2>Libros</h2>
+        <p>Explora nuestra colección de libros.</p>
+        <button onclick="cargarLibro()">Ver Libro</button>
+      </section>
+      <section id="prestamos">
+        <h2>Prestamos y Devoluciones</h2>
+        <p>Información sobre tus préstamos.</p>
+        <button onclick="prestamosDevoluciones()">Ver Prestamos y Devoluciones</button>
+      </section>
+      <section id="acerca-de">
+        <h2>Acerca de Nosotros</h2>
+        <p>Conoce más sobre nuestra biblioteca.</p>
+        <button onclick="acercaNosotros()">Ver Acerca de Nosotros</button>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Derechos de autor © 2024 Biblioteca Virtual. Todos los derechos
+        reservados.
+      </p>
+    </footer>
+    <script src="/js/inicio.js"></script>
+  </body>
+</html>

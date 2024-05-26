@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8d6e63;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 97%;
+    top: 0;
+    z-index: 1000;
+}
+.logo img {
+    height: 30px; /* Ajusta según el tamaño de tu logo */
+}
+
+/*.search-container {
+    margin-left: 20px;  /*Espacio entre el logo y la barra de búsqueda * poner (/)
+}*/
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding-top: 80px; /* Ajustar según la altura del encabezado */
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #8d6e63;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    width: 97%;
+    z-index: 1000; /* Asegura que el footer esté por encima del contenido */
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .search-container input[type="text"] {
+        width: 60%;
+    }
+}
