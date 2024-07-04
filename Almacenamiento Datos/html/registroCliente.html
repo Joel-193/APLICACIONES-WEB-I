@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Biblioteca</title>
+    <link rel="stylesheet" href="/css/registroCliente.css" />
+    <link rel="icon" href="/img/logo.png">
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Registro Cliente</div>
+      <form id="form-validation" novalidate>
+        <div class="form-group">
+          <span>Cédula:</span>
+          <input type="text" id="cedula" placeholder="Ej: 1361234567" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <span>Apellido:</span>
+          <input type="text" id="apellido" placeholder="Ej: Cedeño Pin" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <span>Nombre:</span>
+          <input type="text" id="nombre" placeholder="Ej: Joel Daniel" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <span>Dirección:</span>
+          <input type="text" id="direccion" placeholder="Ej: Av. Libertador 123" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <span>Teléfono:</span>
+          <input type="text" id="telefono" placeholder="Ej: 0991234567" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="form-group">
+          <span>Email:</span>
+          <input type="email" id="email" placeholder="Ej: e1361234567@live.uleam.edu.ec" required/>
+          <small class="error-msg"></small>
+        </div>
+        <div class="button">
+            <input type="submit" value="Registrar Cliente">
+        </div>
+      </form>
+    </div>
+    <script src="/js/validacionAlmacenamientoDatos.js"></script>
+  </body>
+</html>
